@@ -4,3 +4,8 @@ machine:
 
   pre:
     - echo 'export GIT_LFS_SKIP_SMUDGE=1 >> ~/.circle.rc'
+
+checkout:
+  post:
+    - git lfs fetch
+    - git lfs pull
