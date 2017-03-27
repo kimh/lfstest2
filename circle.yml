@@ -3,6 +3,8 @@ machine:
     GIT_LFS_SKIP_SMUDGE: 1
 
 checkout:
+  pre:
+    - echo fooooooooooooo
   post:
     - git lfs fetch
     - git lfs pull
