@@ -1,10 +1,5 @@
-machine:
-  environment:
-    GIT_LFS_SKIP_SMUDGE: 1
-
 checkout:
   pre:
-    - echo fooooooooooooo
+    - echo this is pre-checkout
   post:
-    - git lfs fetch
-    - git lfs pull
+    - echo this is post-checkout
