@@ -1,9 +1,6 @@
 machine:
   environment:
-    GIT_LFS_SKIP_SMUDGE=1
-
-  pre:
-    - echo 'export GIT_LFS_SKIP_SMUDGE=1 >> ~/.circle.rc'
+    GIT_LFS_SKIP_SMUDGE: 1
 
 checkout:
   post:
