@@ -1,9 +1,5 @@
-machine:
-  pre:
-    - echo this is pre-machine
-
 checkout:
   pre:
     - echo this is pre-checkout
   post:
-    - echo this is post-checkout
+    - echo $GIT_LFS_SKIP_SMUDGE
