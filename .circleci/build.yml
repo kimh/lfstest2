@@ -1,0 +1,8 @@
+version: 2
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - lfs/checkout_lfs:
+          ruby: "2.5.1"
