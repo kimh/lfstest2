@@ -1,0 +1,18 @@
+version:2
+
+jobs:
+  whatever:
+    docker:
+      - image: ubuntu
+
+    steps:
+      - checkout
+      - run:
+          name: Install Git LFS
+          command: |
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+            apt-get update
+            apt-get install -y git-lfs openssh-client
+            git lfs install
+            mkdir -p ~/.ssh
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
