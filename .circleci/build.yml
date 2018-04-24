@@ -8,4 +8,4 @@ jobs:
      steps:
        - lfs/install
        - lfs/checkout
-       - run: ls -la
+       - run: cat 0001.jpg
