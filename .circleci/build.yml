@@ -6,4 +6,4 @@ jobs:
      docker:
        - image: macjustice/git-lfs
      steps:
-       - lfs/lfs_pull
+       - lfs/checkout
