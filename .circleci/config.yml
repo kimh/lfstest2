@@ -12,19 +12,3 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
-  checkout_lfs:
-    parameters:
-      ruby:
-        type: string
-    environment:
-    - GIT_LFS_SKIP_SMUDGE: 1
-    docker:
-    - image: macjustice/git-lfs
-    steps:
-    - checkout
-    - run:
-        name: Git LFS (install Git Large File Storage)
-        command: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-          ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
