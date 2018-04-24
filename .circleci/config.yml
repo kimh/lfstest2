@@ -4,7 +4,7 @@ jobs:
     environment:
     - GIT_LFS_SKIP_SMUDGE: 1
     docker:
-    - image: macjustice/git-lfs
+    - image: ubuntu:xenial
     steps:
     - run:
         name: install LFS
