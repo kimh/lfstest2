@@ -7,6 +7,10 @@ jobs:
     - image: macjustice/git-lfs
     steps:
     - run:
+        name: install LFS
+        command: "apt-get update && apt-get -y install wget git -y \nwget https://packagecloud.io/github/git-lfs/packages/ubuntu/xenial/git-lfs_2.1.1_amd64.deb/download\
+          \ -O git-lfs_2.1.1_amd64.deb\ndpkg -i git-lfs_2.1.1_amd64.deb\n"
+    - run:
         name: Git LFS (install Git Large File Storage)
         command: |
           mkdir -p ~/.ssh

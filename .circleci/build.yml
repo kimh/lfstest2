@@ -6,4 +6,5 @@ jobs:
      docker:
        - image: macjustice/git-lfs
      steps:
+       - lfs/install
        - lfs/checkout
