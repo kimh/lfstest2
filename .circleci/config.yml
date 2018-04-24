@@ -10,6 +10,9 @@ jobs:
         name: install LFS
         command: "apt-get update && apt-get -y install wget git -y \nwget https://packagecloud.io/github/git-lfs/packages/ubuntu/xenial/git-lfs_2.1.1_amd64.deb/download\
           \ -O git-lfs_2.1.1_amd64.deb\ndpkg -i git-lfs_2.1.1_amd64.deb\n"
+    - run:
+        name: cleanup
+        command: rm -rf *
     - checkout
     - run:
         name: Git LFS (install Git Large File Storage)
@@ -17,4 +20,5 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
-    - run: ls -la
+    - run:
+        command: ls -la
