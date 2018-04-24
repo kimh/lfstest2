@@ -1,4 +1,5 @@
 steps:
+  - checkout
   - run:
       name: Git LFS (install Git Large File Storage)
       command: |
