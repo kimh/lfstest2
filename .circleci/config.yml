@@ -15,9 +15,9 @@ jobs:
       - run:
           name: Install Git LFS
           command: |
-            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
             apt-get update
-            apt-get install -y git-lfs openssh-client
+            apt-get install -y curl git-lfs openssh-client
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
             git lfs install
             mkdir -p ~/.ssh
             ssh-keyscan -H github.com >> ~/.ssh/known_hosts
