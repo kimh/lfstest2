@@ -1,8 +1,9 @@
 version: 2
-
-workflows:
-  version: 2
-  build-test-deploy:
-    jobs:
-      - lfs/checkout_lfs:
-          ruby: "2.5.1"
+jobs:
+   build:
+     environment:
+       - GIT_LFS_SKIP_SMUDGE: 1
+     docker:
+       - image: macjustice/git-lfs
+     steps:
+       - lfs/lfs_pull

@@ -1,23 +1,30 @@
 version: 2
-workflows:
-  version: 2
-  build-test-deploy:
-    jobs:
-    - checkout_lfs: {}
 jobs:
-  checkout_lfs:
+  build:
     environment:
     - GIT_LFS_SKIP_SMUDGE: 1
     docker:
     - image: macjustice/git-lfs
     steps:
-    - checkout
-    - run: cat 0001.jpg
     - run:
         name: Git LFS (install Git Large File Storage)
         command: |
           mkdir -p ~/.ssh
           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
           ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
-          git lfs pull
-    - run: cat 0001.jpg
+  checkout_lfs:
+    parameters:
+      ruby:
+        type: string
+    environment:
+    - GIT_LFS_SKIP_SMUDGE: 1
+    docker:
+    - image: macjustice/git-lfs
+    steps:
+    - checkout
+    - run:
+        name: Git LFS (install Git Large File Storage)
+        command: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
