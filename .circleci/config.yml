@@ -12,6 +12,7 @@ jobs:
     - image: macjustice/git-lfs
     steps:
     - checkout
+    - run: cat 0001.jpg
     - run:
         name: Git LFS (install Git Large File Storage)
         command: |
