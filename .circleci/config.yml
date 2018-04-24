@@ -15,6 +15,9 @@ jobs:
         command: rm -rf *
     - checkout
     - run:
+        name: See images are not downloaded yet
+        command: cat 0001.jpg
+    - run:
         name: Git LFS (install Git Large File Storage)
         command: |
           mkdir -p ~/.ssh
@@ -22,4 +25,5 @@ jobs:
           ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
           git lfs pull
     - run:
+        name: Now images are downloaded!
         command: cat 0001.jpg

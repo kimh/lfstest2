@@ -1,6 +1,9 @@
 steps:
   - checkout
   - run:
+      name: See images are not downloaded yet
+      command: cat 0001.jpg
+  - run:
       name: Git LFS (install Git Large File Storage)
       command: |
         mkdir -p ~/.ssh

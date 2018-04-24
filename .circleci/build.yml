@@ -8,4 +8,6 @@ jobs:
      steps:
        - lfs/install
        - lfs/checkout
-       - run: cat 0001.jpg
+       - run:
+           name: Now images are downloaded!
+           command: cat 0001.jpg
