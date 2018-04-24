@@ -7,6 +7,9 @@ workflows:
 
 jobs:
   whatever:
+    environment:
+      GIT_LFS_SKIP_SMUDGE: 1
+
     docker:
     - image: macjustice/git-lfs
 
